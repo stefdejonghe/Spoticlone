@@ -1,0 +1,15 @@
+C:\Users\Stef\Desktop\GrPr\PR INTEGRATION\Spoticlone\Pri.Spoticlone\Pri.Spoticlone.Infrastructure\bin\Debug\net5.0\Pri.Spoticlone.Infrastructure.deps.json
+C:\Users\Stef\Desktop\GrPr\PR INTEGRATION\Spoticlone\Pri.Spoticlone\Pri.Spoticlone.Infrastructure\bin\Debug\net5.0\Pri.Spoticlone.Infrastructure.dll
+C:\Users\Stef\Desktop\GrPr\PR INTEGRATION\Spoticlone\Pri.Spoticlone\Pri.Spoticlone.Infrastructure\bin\Debug\net5.0\ref\Pri.Spoticlone.Infrastructure.dll
+C:\Users\Stef\Desktop\GrPr\PR INTEGRATION\Spoticlone\Pri.Spoticlone\Pri.Spoticlone.Infrastructure\bin\Debug\net5.0\Pri.Spoticlone.Infrastructure.pdb
+C:\Users\Stef\Desktop\GrPr\PR INTEGRATION\Spoticlone\Pri.Spoticlone\Pri.Spoticlone.Infrastructure\bin\Debug\net5.0\Pri.Spoticlone.Core.dll
+C:\Users\Stef\Desktop\GrPr\PR INTEGRATION\Spoticlone\Pri.Spoticlone\Pri.Spoticlone.Infrastructure\bin\Debug\net5.0\Pri.Spoticlone.Core.pdb
+C:\Users\Stef\Desktop\GrPr\PR INTEGRATION\Spoticlone\Pri.Spoticlone\Pri.Spoticlone.Infrastructure\obj\Debug\net5.0\Pri.Spoticlone.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Stef\Desktop\GrPr\PR INTEGRATION\Spoticlone\Pri.Spoticlone\Pri.Spoticlone.Infrastructure\obj\Debug\net5.0\Pri.Spoticlone.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Stef\Desktop\GrPr\PR INTEGRATION\Spoticlone\Pri.Spoticlone\Pri.Spoticlone.Infrastructure\obj\Debug\net5.0\Pri.Spoticlone.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Stef\Desktop\GrPr\PR INTEGRATION\Spoticlone\Pri.Spoticlone\Pri.Spoticlone.Infrastructure\obj\Debug\net5.0\Pri.Spoticlone.Infrastructure.AssemblyInfo.cs
+C:\Users\Stef\Desktop\GrPr\PR INTEGRATION\Spoticlone\Pri.Spoticlone\Pri.Spoticlone.Infrastructure\obj\Debug\net5.0\Pri.Spoticlone.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Stef\Desktop\GrPr\PR INTEGRATION\Spoticlone\Pri.Spoticlone\Pri.Spoticlone.Infrastructure\obj\Debug\net5.0\Pri.Spoticlone.Infrastructure.csproj.CopyComplete
+C:\Users\Stef\Desktop\GrPr\PR INTEGRATION\Spoticlone\Pri.Spoticlone\Pri.Spoticlone.Infrastructure\obj\Debug\net5.0\Pri.Spoticlone.Infrastructure.dll
+C:\Users\Stef\Desktop\GrPr\PR INTEGRATION\Spoticlone\Pri.Spoticlone\Pri.Spoticlone.Infrastructure\obj\Debug\net5.0\ref\Pri.Spoticlone.Infrastructure.dll
+C:\Users\Stef\Desktop\GrPr\PR INTEGRATION\Spoticlone\Pri.Spoticlone\Pri.Spoticlone.Infrastructure\obj\Debug\net5.0\Pri.Spoticlone.Infrastructure.pdb
