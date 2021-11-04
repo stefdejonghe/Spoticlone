@@ -43,6 +43,8 @@ namespace Pri.Spoticlone.Api
             services.AddScoped<IRepository<Album>, EfRepository<Album>>();
             services.AddScoped<IRepository<Track>, EfRepository<Track>>();
             services.AddScoped<IRepository<Genre>, EfRepository<Genre>>();
+
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
