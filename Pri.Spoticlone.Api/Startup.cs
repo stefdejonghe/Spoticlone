@@ -10,6 +10,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Pri.Spoticlone.Core.Entities;
 using Pri.Spoticlone.Core.Interfaces.Repositories;
+using Pri.Spoticlone.Core.Interfaces.Services;
+using Pri.Spoticlone.Core.Services;
 using Pri.Spoticlone.Infrastructure.Data;
 using Pri.Spoticlone.Infrastructure.Repositories;
 using System;
@@ -43,6 +45,7 @@ namespace Pri.Spoticlone.Api
             services.AddScoped<IRepository<Album>, EfRepository<Album>>();
             services.AddScoped<IRepository<Track>, EfRepository<Track>>();
             services.AddScoped<IRepository<Genre>, EfRepository<Genre>>();
+            services.AddScoped<IArtistService, ArtistService>();
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }

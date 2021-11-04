@@ -1533,7 +1533,8 @@
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
           "AutoMapper": "10.1.1",
-          "AutoMapper.Extensions.Microsoft.DependencyInjection": "8.1.1"
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "8.1.1",
+          "Microsoft.EntityFrameworkCore": "5.0.11"
         },
         "compile": {
           "bin/placeholder/Pri.Spoticlone.Core.dll": {}
