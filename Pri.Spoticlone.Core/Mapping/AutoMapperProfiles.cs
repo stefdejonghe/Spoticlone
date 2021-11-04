@@ -1,0 +1,28 @@
+﻿using AutoMapper;
+using Pri.Spoticlone.Core.Dtos;
+using Pri.Spoticlone.Core.Entities;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Pri.Spoticlone.Core.Mapping
+{
+    public class AutoMapperProfiles : Profile
+    {
+        public AutoMapperProfiles()
+        {
+            CreateMap<Artist, ArtistResponseDto>()
+                .ForMember(dest => dest.AlbumCount,
+                opt => opt.MapFrom(src => src.Albums.Count()))
+                .ForMember(dest => dest.Genres,
+                opt => opt.MapFrom(src => src.ArtistGenres
+                .Select(ag => new GenreResponseDto
+                {
+                    Id = ag.GenreId,
+                    Name = ag.Genre.Name
+                })));
+        }
+    }
+}
