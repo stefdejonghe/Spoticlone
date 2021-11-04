@@ -8,7 +8,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Pri.Spoticlone.Core.Entities;
+using Pri.Spoticlone.Core.Interfaces.Repositories;
 using Pri.Spoticlone.Infrastructure.Data;
+using Pri.Spoticlone.Infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,6 +38,11 @@ namespace Pri.Spoticlone.Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Pri.Spoticlone.Api", Version = "v1" });
             });
+
+            services.AddScoped<IRepository<Artist>, EfRepository<Artist>>();
+            services.AddScoped<IRepository<Album>, EfRepository<Album>>();
+            services.AddScoped<IRepository<Track>, EfRepository<Track>>();
+            services.AddScoped<IRepository<Genre>, EfRepository<Genre>>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
