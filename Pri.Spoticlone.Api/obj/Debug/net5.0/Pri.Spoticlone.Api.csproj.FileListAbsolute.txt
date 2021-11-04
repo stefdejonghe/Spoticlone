@@ -61,3 +61,5 @@ C:\Users\Stef\Desktop\GrPr\PR INTEGRATION\Spoticlone\Pri.Spoticlone\Pri.Spoticlo
 C:\Users\Stef\Desktop\GrPr\PR INTEGRATION\Spoticlone\Pri.Spoticlone\Pri.Spoticlone.Api\bin\Debug\net5.0\Pri.Spoticlone.Infrastructure.dll
 C:\Users\Stef\Desktop\GrPr\PR INTEGRATION\Spoticlone\Pri.Spoticlone\Pri.Spoticlone.Api\bin\Debug\net5.0\Pri.Spoticlone.Infrastructure.pdb
 C:\Users\Stef\Desktop\GrPr\PR INTEGRATION\Spoticlone\Pri.Spoticlone\Pri.Spoticlone.Api\bin\Debug\net5.0\Pri.Spoticlone.Core.pdb
+C:\Users\Stef\Desktop\GrPr\PR INTEGRATION\Spoticlone\Pri.Spoticlone\Pri.Spoticlone.Api\bin\Debug\net5.0\Humanizer.dll
+C:\Users\Stef\Desktop\GrPr\PR INTEGRATION\Spoticlone\Pri.Spoticlone\Pri.Spoticlone.Api\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll

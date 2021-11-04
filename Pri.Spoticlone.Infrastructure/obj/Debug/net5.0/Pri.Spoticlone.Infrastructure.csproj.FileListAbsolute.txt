@@ -13,3 +13,6 @@ C:\Users\Stef\Desktop\GrPr\PR INTEGRATION\Spoticlone\Pri.Spoticlone\Pri.Spoticlo
 C:\Users\Stef\Desktop\GrPr\PR INTEGRATION\Spoticlone\Pri.Spoticlone\Pri.Spoticlone.Infrastructure\obj\Debug\net5.0\Pri.Spoticlone.Infrastructure.dll
 C:\Users\Stef\Desktop\GrPr\PR INTEGRATION\Spoticlone\Pri.Spoticlone\Pri.Spoticlone.Infrastructure\obj\Debug\net5.0\ref\Pri.Spoticlone.Infrastructure.dll
 C:\Users\Stef\Desktop\GrPr\PR INTEGRATION\Spoticlone\Pri.Spoticlone\Pri.Spoticlone.Infrastructure\obj\Debug\net5.0\Pri.Spoticlone.Infrastructure.pdb
+C:\Users\Stef\Desktop\GrPr\PR INTEGRATION\Spoticlone\Pri.Spoticlone\Pri.Spoticlone.Infrastructure\bin\Debug\net5.0\Pri.Spoticlone.Infrastructure.runtimeconfig.json
+C:\Users\Stef\Desktop\GrPr\PR INTEGRATION\Spoticlone\Pri.Spoticlone\Pri.Spoticlone.Infrastructure\bin\Debug\net5.0\Pri.Spoticlone.Infrastructure.runtimeconfig.dev.json
+C:\Users\Stef\Desktop\GrPr\PR INTEGRATION\Spoticlone\Pri.Spoticlone\Pri.Spoticlone.Infrastructure\obj\Debug\net5.0\Pri.Spoticlone.Infrastructure.genruntimeconfig.cache
