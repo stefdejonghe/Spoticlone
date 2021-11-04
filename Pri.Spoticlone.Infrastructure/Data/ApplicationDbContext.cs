@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Pri.Spoticlone.Core.Entities;
+using Pri.Spoticlone.Infrastructure.Data.Seeding;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,6 +37,12 @@ namespace Pri.Spoticlone.Infrastructure.Data
                 .HasOne(ag => ag.Genre)
                 .WithMany(a => a.ArtistGenres)
                 .HasForeignKey(ag => ag.GenreId);
+
+            ArtistSeeder.Seed(modelBuilder);
+            GenreSeeder.Seed(modelBuilder);
+            AlbumSeeder.Seed(modelBuilder);
+            TrackSeeder.Seed(modelBuilder);
+            ArtistGenreSeeder.Seed(modelBuilder);
         }
     }
 }
