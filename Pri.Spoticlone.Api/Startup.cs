@@ -47,6 +47,8 @@ namespace Pri.Spoticlone.Api
             services.AddScoped<IRepository<Genre>, EfRepository<Genre>>();
             services.AddScoped<IArtistService, ArtistService>();
             services.AddScoped<IAlbumService, AlbumService>();
+            services.AddScoped<IGenreService, GenreService>();
+            services.AddScoped<ITrackService, TrackService>();
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }

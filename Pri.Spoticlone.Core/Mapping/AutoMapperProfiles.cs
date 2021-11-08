@@ -27,6 +27,12 @@ namespace Pri.Spoticlone.Core.Mapping
             CreateMap<Album, AlbumResponseDto>()
                 .ForMember(dest => dest.TrackCount,
                 opt => opt.MapFrom(src => src.Tracks.Count));
+
+            CreateMap<Genre, GenreResponseDto>()
+                .ForMember(dest => dest.ArtistCount,
+                opt => opt.MapFrom(src => src.ArtistGenres.Count(a => a.GenreId.Equals(src.Id))));
+
+            CreateMap<Track, TrackResponseDto>();
         }
     }
 }

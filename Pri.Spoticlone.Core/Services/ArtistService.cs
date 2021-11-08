@@ -27,7 +27,7 @@ namespace Pri.Spoticlone.Core.Services
         {
             var result = await _artistRepository.GetAllAsync()
                 .Include(a => a.ArtistGenres)
-                .ThenInclude(ag => ag.Genre)
+                    .ThenInclude(ag => ag.Genre)
                 .Include(a => a.Albums)
                 .SingleOrDefaultAsync(a => a.Id.Equals(id));
 
@@ -39,7 +39,7 @@ namespace Pri.Spoticlone.Core.Services
         {
             var result = await _artistRepository.GetAllAsync()
                 .Include(a => a.ArtistGenres)
-                .ThenInclude(a => a.Genre)
+                    .ThenInclude(a => a.Genre)
                 .Include(a => a.Albums)
                 .ToListAsync();
 
