@@ -50,5 +50,17 @@ namespace Pri.Spoticlone.Api.Controllers
             var artistResponseDto = await _artistService.AddAsync(artistRequestDto);
             return CreatedAtAction(nameof(Get), new { id = artistResponseDto.Id }, artistResponseDto);
         }
+
+        [HttpPut]
+        public async Task<IActionResult> Put(ArtistRequestDto artistRequestDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var artistResponseDto = await _artistService.UpdateAsync(artistRequestDto);
+            return Ok(artistResponseDto);
+        }
     }
 }
