@@ -25,6 +25,7 @@ namespace Pri.Spoticlone.Core.Services
         {
             var result = await _albumRepository.GetAllAsync()
                 .Include(a => a.Artist)
+                .Include(a => a.Tracks)
                 .SingleOrDefaultAsync(a => a.Id.Equals(id));
 
             var dto = _mapper.Map<AlbumResponseDto>(result);
@@ -35,6 +36,7 @@ namespace Pri.Spoticlone.Core.Services
         {
             var result = await _albumRepository.GetAllAsync()
                 .Include(a => a.Artist)
+                .Include(a => a.Tracks)
                 .ToListAsync();
 
             var dto = _mapper.Map<IEnumerable<AlbumResponseDto>>(result);

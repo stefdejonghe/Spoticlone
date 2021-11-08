@@ -15,7 +15,7 @@ namespace Pri.Spoticlone.Core.Mapping
         {
             CreateMap<Artist, ArtistResponseDto>()
                 .ForMember(dest => dest.AlbumCount,
-                opt => opt.MapFrom(src => src.Albums.Count()))
+                opt => opt.MapFrom(src => src.Albums.Count))
                 .ForMember(dest => dest.Genres,
                 opt => opt.MapFrom(src => src.ArtistGenres
                 .Select(ag => new GenreResponseDto
@@ -26,7 +26,7 @@ namespace Pri.Spoticlone.Core.Mapping
 
             CreateMap<Album, AlbumResponseDto>()
                 .ForMember(dest => dest.TrackCount,
-                opt => opt.MapFrom(src => src.Tracks.Count()));
+                opt => opt.MapFrom(src => src.Tracks.Count));
         }
     }
 }
