@@ -13,6 +13,6 @@ namespace Pri.Spoticlone.Core.Entities
         public Guid ArtistId { get; set; }
         public string SpotifyId { get; set; }
         public Artist Artist { get; set; }
-        public ICollection<Track> MyProperty { get; set; }
+        public ICollection<Track> Tracks { get; set; }
     }
 }
