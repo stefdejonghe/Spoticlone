@@ -38,11 +38,11 @@ namespace Pri.Spoticlone.Infrastructure.Data
                 .WithMany(a => a.ArtistGenres)
                 .HasForeignKey(ag => ag.GenreId);
 
-            ArtistSeeder.Seed(modelBuilder);
-            GenreSeeder.Seed(modelBuilder);
-            AlbumSeeder.Seed(modelBuilder);
-            TrackSeeder.Seed(modelBuilder);
-            ArtistGenreSeeder.Seed(modelBuilder);
+            //ArtistSeeder.Seed(modelBuilder);
+            //GenreSeeder.Seed(modelBuilder);
+            //AlbumSeeder.Seed(modelBuilder);
+            //TrackSeeder.Seed(modelBuilder);
+            //ArtistGenreSeeder.Seed(modelBuilder);
         }
     }
 }
