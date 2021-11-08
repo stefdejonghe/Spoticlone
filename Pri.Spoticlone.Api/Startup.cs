@@ -43,7 +43,7 @@ namespace Pri.Spoticlone.Api
 
             services.AddCors();
 
-            services.AddScoped<IRepository<Artist>, EfRepository<Artist>>();
+            services.AddScoped<IArtistRepository, ArtistRepository>();
             services.AddScoped<IRepository<Album>, EfRepository<Album>>();
             services.AddScoped<IRepository<Track>, EfRepository<Track>>();
             services.AddScoped<IRepository<Genre>, EfRepository<Genre>>();

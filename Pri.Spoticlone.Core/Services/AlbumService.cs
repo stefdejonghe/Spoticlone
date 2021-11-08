@@ -15,10 +15,12 @@ namespace Pri.Spoticlone.Core.Services
     public class AlbumService : IAlbumService
     {
         private readonly IRepository<Album> _albumRepository;
+        private readonly IArtistRepository _artistRepository;
         private readonly IMapper _mapper;
-        public AlbumService(IRepository<Album> albumRepository, IMapper mapper)
+        public AlbumService(IRepository<Album> albumRepository, IArtistRepository artistRepository, IMapper mapper)
         {
             _albumRepository = albumRepository;
+            _artistRepository = artistRepository;
             _mapper = mapper;
         }
         public async Task<AlbumResponseDto> GetByIdAsync(Guid id)

@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Pri.Spoticlone.Core.Entities;
+using Pri.Spoticlone.Core.Interfaces.Repositories;
 using Pri.Spoticlone.Infrastructure.Data;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Pri.Spoticlone.Infrastructure.Repositories
 {
-    public class ArtistRepository : EfRepository<Artist>
+    public class ArtistRepository : EfRepository<Artist>, IArtistRepository
     {
         public ArtistRepository(ApplicationDbContext dbContext) : base(dbContext)
         {

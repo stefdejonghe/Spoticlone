@@ -14,10 +14,10 @@ namespace Pri.Spoticlone.Core.Services
 {
     public class ArtistService : IArtistService
     {
-        private readonly IRepository<Artist> _artistRepository;
+        private readonly IArtistRepository _artistRepository;
         private readonly IMapper _mapper;
 
-        public ArtistService(IRepository<Artist> artistRepository, IMapper mapper)
+        public ArtistService(IArtistRepository artistRepository, IMapper mapper)
         {
             _artistRepository = artistRepository;
             _mapper = mapper;
@@ -26,11 +26,7 @@ namespace Pri.Spoticlone.Core.Services
 
         public async Task<ArtistResponseDto> GetByIdAsync(Guid id)
         {
-            var result = await _artistRepository.GetAllAsync()
-                .Include(a => a.ArtistGenres)
-                    .ThenInclude(ag => ag.Genre)
-                .Include(a => a.Albums)
-                .SingleOrDefaultAsync(a => a.Id.Equals(id));
+            var result = await _artistRepository.GetByIdAsync(id);
 
             var dto = _mapper.Map<ArtistResponseDto>(result);
             return dto;
@@ -38,11 +34,15 @@ namespace Pri.Spoticlone.Core.Services
 
         public async Task<IEnumerable<ArtistResponseDto>> ListAllAsync()
         {
-            var result = await _artistRepository.GetAllAsync()
-                .Include(a => a.ArtistGenres)
-                    .ThenInclude(a => a.Genre)
-                .Include(a => a.Albums)
-                .ToListAsync();
+            var result = await _artistRepository.ListAllAsync();
+
+            var dto = _mapper.Map<IEnumerable<ArtistResponseDto>>(result);
+            return dto;
+        }
+
+        public async Task<IEnumerable<ArtistResponseDto>> GetByGenreIdAsync(Guid id)
+        {
+            var result = await _artistRepository.GetByGenreIdAsync(id);
 
             var dto = _mapper.Map<IEnumerable<ArtistResponseDto>>(result);
             return dto;
