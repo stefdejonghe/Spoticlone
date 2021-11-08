@@ -1,5 +1,7 @@
-﻿using Pri.Spoticlone.Core.Entities.Base;
+﻿using Microsoft.EntityFrameworkCore;
+using Pri.Spoticlone.Core.Entities.Base;
 using Pri.Spoticlone.Core.Interfaces.Repositories;
+using Pri.Spoticlone.Infrastructure.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,54 +13,75 @@ namespace Pri.Spoticlone.Infrastructure.Repositories
 {
     public class EfRepository<T> : IRepository<T> where T : EntityBase
     {
-        public Task<T> AddAsync(T entity)
+        private readonly ApplicationDbContext _dbContext;
+
+        public EfRepository(ApplicationDbContext dbContext)
         {
-            throw new NotImplementedException();
+            _dbContext = dbContext;
+        }
+        public async Task<T> AddAsync(T entity)
+        {
+            await _dbContext.Set<T>().AddAsync(entity);
+            await _dbContext.SaveChangesAsync();
+            return entity;
         }
 
-        public Task<T> DeleteAsync(T entity)
+        public async Task<T> DeleteAsync(T entity)
         {
-            throw new NotImplementedException();
+            _dbContext.Set<T>().Remove(entity);
+            await _dbContext.SaveChangesAsync();
+            return entity;
         }
 
-        public Task<T> DeleteAsync(Guid id)
+        public async Task<T> DeleteAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var entity = await GetByIdAsync(id);
+            await DeleteAsync(entity);
+            return entity;
         }
 
         public IQueryable<T> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return _dbContext.Set<T>().AsNoTracking();
         }
 
-        public Task<T> GetByIdAsync(Guid id)
+        public async Task<T> GetByIdAsync(Guid id)
         {
-            throw new NotImplementedException();
+            return await _dbContext.Set<T>().FindAsync(id);
         }
 
-        public Task<T> GetByIdAsync(Guid id, string[] includes)
+        public async Task<T> GetByIdAsync(Guid id, string[] includes)
         {
-            throw new NotImplementedException();
+            var query = _dbContext.Set<T>().AsQueryable();
+
+            foreach (var include in includes)
+            {
+                query = query.Include(include);
+            }
+
+            return await query.SingleOrDefaultAsync(t => t.Id.Equals(id));
         }
 
         public IQueryable<T> GetFiltered(Expression<Func<T, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return _dbContext.Set<T>().Where(predicate).AsQueryable();
         }
 
-        public Task<IEnumerable<T>> ListAllAsync()
+        public async Task<IEnumerable<T>> ListAllAsync()
         {
-            throw new NotImplementedException();
+            return await GetAllAsync().ToListAsync();
         }
 
-        public Task<IEnumerable<T>> ListFiltered(Expression<Func<T, bool>> predicate)
+        public async Task<IEnumerable<T>> ListFiltered(Expression<Func<T, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return await GetFiltered(predicate).ToListAsync();
         }
 
-        public Task<T> UpdateAsync(T entity)
+        public async Task<T> UpdateAsync(T entity)
         {
-            throw new NotImplementedException();
+            _dbContext.Entry(entity).State = EntityState.Modified;
+            await _dbContext.SaveChangesAsync();
+            return entity;
         }
     }
 }
