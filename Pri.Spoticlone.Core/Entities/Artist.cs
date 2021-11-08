@@ -12,9 +12,9 @@ namespace Pri.Spoticlone.Core.Entities
         public string Name { get; set; }
         public int Followers { get; set; }
         public int Popularity { get; set; }
-        public ICollection<ArtistGenre> ArtistGenres { get; set; }
-        public ICollection<Album> Albums { get; set; }
         public string SpotifyId { get; set; }
         public Uri Image { get; set; }
+        public ICollection<ArtistGenre> ArtistGenres { get; set; }
+        public ICollection<Album> Albums { get; set; }
     }
 }
