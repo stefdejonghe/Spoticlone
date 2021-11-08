@@ -33,6 +33,8 @@ namespace Pri.Spoticlone.Core.Mapping
                 opt => opt.MapFrom(src => src.ArtistGenres.Count(a => a.GenreId.Equals(src.Id))));
 
             CreateMap<Track, TrackResponseDto>();
+
+            CreateMap<ArtistRequestDto, Artist>();
         }
     }
 }
