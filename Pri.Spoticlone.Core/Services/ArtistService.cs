@@ -23,6 +23,7 @@ namespace Pri.Spoticlone.Core.Services
             _mapper = mapper;
         }
 
+
         public async Task<ArtistResponseDto> GetByIdAsync(Guid id)
         {
             var result = await _artistRepository.GetAllAsync()
@@ -44,6 +45,20 @@ namespace Pri.Spoticlone.Core.Services
                 .ToListAsync();
 
             var dto = _mapper.Map<IEnumerable<ArtistResponseDto>>(result);
+            return dto;
+        }
+        public async Task<ArtistResponseDto> AddAsync(ArtistRequestDto artistRequestDto)
+        {
+            var artistEntity = _mapper.Map<Artist>(artistRequestDto);
+
+            if (artistEntity.Image == null)
+            {
+                artistEntity.Image = new Uri("https://via.placeholder.com/150/1ED760/ffffff?text="
+                    + artistEntity.Name.Replace(" ", "+"), UriKind.Absolute);
+            }
+
+            var result = await _artistRepository.AddAsync(artistEntity);
+            var dto = _mapper.Map<ArtistResponseDto>(result);
             return dto;
         }
     }

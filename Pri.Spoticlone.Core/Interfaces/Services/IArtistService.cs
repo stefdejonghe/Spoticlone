@@ -11,5 +11,6 @@ namespace Pri.Spoticlone.Core.Interfaces.Services
     {
         Task<IEnumerable<ArtistResponseDto>> ListAllAsync();
         Task<ArtistResponseDto> GetByIdAsync(Guid id);
+        Task<ArtistResponseDto> AddAsync(ArtistRequestDto artistRequestDto);
     }
 }
