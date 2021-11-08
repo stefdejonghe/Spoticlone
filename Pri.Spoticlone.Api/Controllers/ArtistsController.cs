@@ -1,0 +1,41 @@
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Pri.Spoticlone.Core.Interfaces.Services;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace Pri.Spoticlone.Api.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class ArtistsController : ControllerBase
+    {
+        private readonly IArtistService _artistService;
+        public ArtistsController(IArtistService artistService)
+        {
+            _artistService = artistService;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            var artists = await _artistService.ListAllAsync();
+
+            return Ok(artists);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Get(Guid id)
+        {
+            var artist = await _artistService.GetByIdAsync(id);
+            if (artist == null)
+            {
+                return NotFound($"Artist with ID {id} does not exist");
+            }
+
+            return Ok(artist);
+        }
+    }
+}

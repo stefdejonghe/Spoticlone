@@ -9,3 +9,4 @@ C:\Users\Stef\Desktop\GrPr\PR INTEGRATION\Spoticlone\Pri.Spoticlone\Pri.Spoticlo
 C:\Users\Stef\Desktop\GrPr\PR INTEGRATION\Spoticlone\Pri.Spoticlone\Pri.Spoticlone.Core\obj\Debug\net5.0\Pri.Spoticlone.Core.dll
 C:\Users\Stef\Desktop\GrPr\PR INTEGRATION\Spoticlone\Pri.Spoticlone\Pri.Spoticlone.Core\obj\Debug\net5.0\ref\Pri.Spoticlone.Core.dll
 C:\Users\Stef\Desktop\GrPr\PR INTEGRATION\Spoticlone\Pri.Spoticlone\Pri.Spoticlone.Core\obj\Debug\net5.0\Pri.Spoticlone.Core.pdb
+C:\Users\Stef\Desktop\GrPr\PR INTEGRATION\Spoticlone\Pri.Spoticlone\Pri.Spoticlone.Core\obj\Debug\net5.0\Pri.Spoticlone.Core.csproj.AssemblyReference.cache
