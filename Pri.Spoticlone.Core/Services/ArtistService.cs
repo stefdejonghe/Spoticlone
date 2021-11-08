@@ -54,7 +54,7 @@ namespace Pri.Spoticlone.Core.Services
             if (artistEntity.Image == null)
             {
                 artistEntity.Image = new Uri("https://via.placeholder.com/150/1ED760/ffffff?text="
-                    + artistEntity.Name.Replace(" ", "+"), UriKind.Absolute);
+                   + artistEntity.Name.Replace(" ", "+"), UriKind.Absolute);
             }
 
             var result = await _artistRepository.AddAsync(artistEntity);
