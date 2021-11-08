@@ -62,5 +62,18 @@ namespace Pri.Spoticlone.Api.Controllers
             var artistResponseDto = await _artistService.UpdateAsync(artistRequestDto);
             return Ok(artistResponseDto);
         }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var artist = await _artistService.GetByIdAsync(id);
+            if (artist == null)
+            {
+                return NotFound($"Arist with ID {id} does not exist");
+            }
+
+            await _artistService.DeleteAsync(id);
+            return Ok();
+        }
     }
 }

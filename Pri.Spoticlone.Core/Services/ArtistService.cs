@@ -69,5 +69,10 @@ namespace Pri.Spoticlone.Core.Services
             var dto = _mapper.Map<ArtistResponseDto>(result);
             return dto;
         }
+
+        public async Task DeleteAsync(Guid id)
+        {
+            await _artistRepository.DeleteAsync(id);
+        }
     }
 }

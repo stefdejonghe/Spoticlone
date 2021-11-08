@@ -13,7 +13,7 @@ namespace Pri.Spoticlone.Infrastructure.Repositories
 {
     public class EfRepository<T> : IRepository<T> where T : EntityBase
     {
-        private readonly ApplicationDbContext _dbContext;
+        protected readonly ApplicationDbContext _dbContext;
 
         public EfRepository(ApplicationDbContext dbContext)
         {
@@ -40,12 +40,12 @@ namespace Pri.Spoticlone.Infrastructure.Repositories
             return entity;
         }
 
-        public IQueryable<T> GetAllAsync()
+        public virtual IQueryable<T> GetAllAsync()
         {
             return _dbContext.Set<T>().AsNoTracking();
         }
 
-        public async Task<T> GetByIdAsync(Guid id)
+        public virtual async Task<T> GetByIdAsync(Guid id)
         {
             return await _dbContext.Set<T>().FindAsync(id);
         }
