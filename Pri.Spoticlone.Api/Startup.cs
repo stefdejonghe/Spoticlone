@@ -41,6 +41,8 @@ namespace Pri.Spoticlone.Api
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Pri.Spoticlone.Api", Version = "v1" });
             });
 
+            services.AddCors();
+
             services.AddScoped<IRepository<Artist>, EfRepository<Artist>>();
             services.AddScoped<IRepository<Album>, EfRepository<Album>>();
             services.AddScoped<IRepository<Track>, EfRepository<Track>>();
@@ -68,6 +70,10 @@ namespace Pri.Spoticlone.Api
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors(builder => builder.AllowAnyOrigin()
+                .AllowAnyHeader()
+                .AllowAnyMethod());
 
             app.UseEndpoints(endpoints =>
             {
