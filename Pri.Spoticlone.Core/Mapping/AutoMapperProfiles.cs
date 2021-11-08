@@ -23,6 +23,10 @@ namespace Pri.Spoticlone.Core.Mapping
                     Id = ag.GenreId,
                     Name = ag.Genre.Name
                 })));
+
+            CreateMap<Album, AlbumResponseDto>()
+                .ForMember(dest => dest.TrackCount,
+                opt => opt.MapFrom(src => src.Tracks.Count()));
         }
     }
 }
