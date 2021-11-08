@@ -27,7 +27,7 @@ namespace Pri.Spoticlone.Api.Controllers
             return Ok(albums);
         }
 
-        [HttpGet]
+        [HttpGet("{id}")]
         public async Task<IActionResult> Get(Guid id)
         {
             var album = await _albumService.GetByIdAsync(id);
