@@ -54,9 +54,12 @@ namespace Pri.Spoticlone.Core.Services
             return dto;
         }
 
-        public Task<TrackResponseDto> UpdateAsync(TrackRequestDto trackRequestDto)
+        public async Task<TrackResponseDto> UpdateAsync(TrackRequestDto trackRequestDto)
         {
-            throw new NotImplementedException();
+            var trackEntity = _mapper.Map<Track>(trackRequestDto);
+            var result = await _trackRepository.UpdateAsync(trackEntity);
+            var dto = _mapper.Map<TrackResponseDto>(result);
+            return dto;
         }
 
         public Task<TrackResponseDto> DeleteAsync(Guid id)

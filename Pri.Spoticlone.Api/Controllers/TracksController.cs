@@ -51,5 +51,17 @@ namespace Pri.Spoticlone.Api.Controllers
             var trackResponseDto = await _trackService.AddAsync(trackRequestDto);
             return CreatedAtAction(nameof(Get), new { id = trackResponseDto.Id }, trackResponseDto);
         }
+
+        [HttpPut]
+        public async Task<IActionResult> Put(TrackRequestDto trackRequestDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var trackResponseDto = await _trackService.UpdateAsync(trackRequestDto);
+            return Ok(trackResponseDto);
+        }
     }
 }
