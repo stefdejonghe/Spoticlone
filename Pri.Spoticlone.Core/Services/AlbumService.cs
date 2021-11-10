@@ -51,5 +51,13 @@ namespace Pri.Spoticlone.Core.Services
             var dto = _mapper.Map<AlbumResponseDto>(result);
             return dto;
         }
+
+        public async Task<AlbumResponseDto> UpdateAsync(AlbumRequestDto albumRequestDto)
+        {
+            var albumEntity = _mapper.Map<Album>(albumRequestDto);
+            var result = await _albumRepository.UpdateAsync(albumEntity);
+            var dto = _mapper.Map<AlbumResponseDto>(result);
+            return dto;
+        }
     }
 }

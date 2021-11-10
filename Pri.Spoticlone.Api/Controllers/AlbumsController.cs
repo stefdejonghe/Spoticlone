@@ -51,5 +51,17 @@ namespace Pri.Spoticlone.Api.Controllers
             var albumResponseDto = await _albumService.AddAsync(albumRequestDto);
             return CreatedAtAction(nameof(Get), new { id = albumResponseDto.Id }, albumResponseDto);
         }
+
+        [HttpPut]
+        public async Task<IActionResult> Put(AlbumRequestDto albumRequestDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var albumResponseDto = await _albumService.UpdateAsync(albumRequestDto);
+            return Ok(albumResponseDto);
+        }
     }
 }
