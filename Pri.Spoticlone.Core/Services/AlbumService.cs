@@ -14,21 +14,16 @@ namespace Pri.Spoticlone.Core.Services
 {
     public class AlbumService : IAlbumService
     {
-        private readonly IRepository<Album> _albumRepository;
-        private readonly IArtistRepository _artistRepository;
+        private readonly IAlbumRepository _albumRepository;
         private readonly IMapper _mapper;
-        public AlbumService(IRepository<Album> albumRepository, IArtistRepository artistRepository, IMapper mapper)
+        public AlbumService(IAlbumRepository albumRepository, IMapper mapper)
         {
             _albumRepository = albumRepository;
-            _artistRepository = artistRepository;
             _mapper = mapper;
         }
         public async Task<AlbumResponseDto> GetByIdAsync(Guid id)
         {
-            var result = await _albumRepository.GetAllAsync()
-                .Include(a => a.Artist)
-                .Include(a => a.Tracks)
-                .SingleOrDefaultAsync(a => a.Id.Equals(id));
+            var result = await _albumRepository.GetByIdAsync(id);
 
             var dto = _mapper.Map<AlbumResponseDto>(result);
             return dto;
@@ -36,10 +31,7 @@ namespace Pri.Spoticlone.Core.Services
 
         public async Task<IEnumerable<AlbumResponseDto>> ListAllAsync()
         {
-            var result = await _albumRepository.GetAllAsync()
-                .Include(a => a.Artist)
-                .Include(a => a.Tracks)
-                .ToListAsync();
+            var result = await _albumRepository.ListAllAsync();
 
             var dto = _mapper.Map<IEnumerable<AlbumResponseDto>>(result);
             return dto;
