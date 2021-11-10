@@ -35,6 +35,7 @@ namespace Pri.Spoticlone.Core.Mapping
             CreateMap<Track, TrackResponseDto>();
 
             CreateMap<ArtistRequestDto, Artist>();
+            CreateMap<AlbumRequestDto, Album>();
         }
     }
 }

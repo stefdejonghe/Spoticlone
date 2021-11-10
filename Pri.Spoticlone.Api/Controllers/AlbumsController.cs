@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Pri.Spoticlone.Core.Dtos;
 using Pri.Spoticlone.Core.Interfaces.Services;
 using System;
 using System.Collections.Generic;
@@ -37,6 +38,18 @@ namespace Pri.Spoticlone.Api.Controllers
             }
 
             return Ok(album);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Post(AlbumRequestDto albumRequestDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var albumResponseDto = await _albumService.AddAsync(albumRequestDto);
+            return CreatedAtAction(nameof(Get), new { id = albumResponseDto.Id }, albumResponseDto);
         }
     }
 }
