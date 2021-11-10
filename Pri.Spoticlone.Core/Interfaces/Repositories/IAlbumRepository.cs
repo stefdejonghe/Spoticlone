@@ -9,6 +9,6 @@ namespace Pri.Spoticlone.Core.Interfaces.Repositories
 {
     public interface IAlbumRepository : IRepository<Album>
     {
-
+        Task<IEnumerable<Album>> GetByArtistIdAsync(Guid id);
     }
 }
