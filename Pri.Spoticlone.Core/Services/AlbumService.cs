@@ -36,5 +36,12 @@ namespace Pri.Spoticlone.Core.Services
             var dto = _mapper.Map<IEnumerable<AlbumResponseDto>>(result);
             return dto;
         }
+
+        public async Task<IEnumerable<AlbumResponseDto>> GetByArtistId(Guid id)
+        {
+            var result = await _albumRepository.GetByArtistIdAsync(id);
+            var dto = _mapper.Map<IEnumerable<AlbumResponseDto>>(result);
+            return dto;
+        }
     }
 }
