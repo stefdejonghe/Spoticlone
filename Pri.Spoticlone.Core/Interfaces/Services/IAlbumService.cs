@@ -13,5 +13,6 @@ namespace Pri.Spoticlone.Core.Interfaces.Services
         Task<AlbumResponseDto> GetByIdAsync(Guid id);
         Task<AlbumResponseDto> AddAsync(AlbumRequestDto albumRequestDto);
         Task<AlbumResponseDto> UpdateAsync(AlbumRequestDto albumRequestDto);
+        Task DeleteAsync(Guid id);
     }
 }

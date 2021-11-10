@@ -63,5 +63,18 @@ namespace Pri.Spoticlone.Api.Controllers
             var albumResponseDto = await _albumService.UpdateAsync(albumRequestDto);
             return Ok(albumResponseDto);
         }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var album = await _albumService.GetByIdAsync(id);
+            if (album == null)
+            {
+                return NotFound($"Album with ID {id} does not exist");
+            }
+
+            await _albumService.DeleteAsync(id);
+            return Ok();
+        }
     }
 }
