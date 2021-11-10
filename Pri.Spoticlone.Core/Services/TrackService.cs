@@ -45,5 +45,23 @@ namespace Pri.Spoticlone.Core.Services
             var dto = _mapper.Map<IEnumerable<TrackResponseDto>>(result);
             return dto;
         }
+
+        public async Task<TrackResponseDto> AddAsync(TrackRequestDto trackRequestDto)
+        {
+            var trackEntity = _mapper.Map<Track>(trackRequestDto);
+            var result = await _trackRepository.AddAsync(trackEntity);
+            var dto = _mapper.Map<TrackResponseDto>(result);
+            return dto;
+        }
+
+        public Task<TrackResponseDto> UpdateAsync(TrackRequestDto trackRequestDto)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<TrackResponseDto> DeleteAsync(Guid id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

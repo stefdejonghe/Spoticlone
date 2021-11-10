@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Pri.Spoticlone.Core.Dtos;
 using Pri.Spoticlone.Core.Interfaces.Services;
 using System;
 using System.Collections.Generic;
@@ -37,6 +38,18 @@ namespace Pri.Spoticlone.Api.Controllers
             }
 
             return Ok(track);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Post(TrackRequestDto trackRequestDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var trackResponseDto = await _trackService.AddAsync(trackRequestDto);
+            return CreatedAtAction(nameof(Get), new { id = trackResponseDto.Id }, trackResponseDto);
         }
     }
 }
