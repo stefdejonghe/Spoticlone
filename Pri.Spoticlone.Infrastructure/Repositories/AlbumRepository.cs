@@ -28,5 +28,12 @@ namespace Pri.Spoticlone.Infrastructure.Repositories
                 .Include(a => a.Artist)
                 .Include(a => a.Tracks);
         }
+
+        public async Task<IEnumerable<Album>> GetByArtistIdAsync(Guid id)
+        {
+            return await GetAllAsync()
+                .Where(a => a.ArtistId.Equals(id))
+                .ToListAsync();
+        }
     }
 }
