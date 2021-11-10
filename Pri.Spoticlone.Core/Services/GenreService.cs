@@ -46,5 +46,13 @@ namespace Pri.Spoticlone.Core.Services
             var dto = _mapper.Map<IEnumerable<GenreResponseDto>>(result);
             return dto;
         }
+
+        public async Task<GenreResponseDto> UpdateAsync(GenreRequestDto genreRequestDto)
+        {
+            var genreEntity = _mapper.Map<Genre>(genreRequestDto);
+            var result = await _genreRepository.UpdateAsync(genreEntity);
+            var dto = _mapper.Map<GenreResponseDto>(result);
+            return dto;
+        }
     }
 }

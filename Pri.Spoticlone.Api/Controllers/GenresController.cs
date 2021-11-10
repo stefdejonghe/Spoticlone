@@ -51,5 +51,17 @@ namespace Pri.Spoticlone.Api.Controllers
             var genreResponseDto = await _genreService.AddAsync(genreRequestDto);
             return CreatedAtAction(nameof(Get), new { id = genreResponseDto.Id }, genreResponseDto);
         }
+
+        [HttpPut]
+        public async Task<IActionResult> Put(GenreRequestDto genreRequestDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var genreResponseDto = await _genreService.UpdateAsync(genreRequestDto);
+            return Ok(genreResponseDto);
+        }
     }
 }
