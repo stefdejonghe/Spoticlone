@@ -14,20 +14,17 @@ namespace Pri.Spoticlone.Core.Services
 {
     public class TrackService : ITrackService
     {
-        private readonly IRepository<Track> _trackRepository;
+        private readonly ITrackRepository _trackRepository;
         private readonly IMapper _mapper;
 
-        public TrackService(IRepository<Track> trackRepository, IMapper mapper)
+        public TrackService(ITrackRepository trackRepository, IMapper mapper)
         {
             _trackRepository = trackRepository;
             _mapper = mapper;
         }
         public async Task<TrackResponseDto> GetByIdAsync(Guid id)
         {
-            var result = await _trackRepository.GetAllAsync()
-                .Include(t => t.Album)
-                    .ThenInclude(a => a.Artist)
-                .SingleOrDefaultAsync(t => t.Id.Equals(id));
+            var result = await _trackRepository.GetByIdAsync(id);
 
             var dto = _mapper.Map<TrackResponseDto>(result);
             return dto;
@@ -35,10 +32,15 @@ namespace Pri.Spoticlone.Core.Services
 
         public async Task<IEnumerable<TrackResponseDto>> ListAllAsync()
         {
-            var result = await _trackRepository.GetAllAsync()
-                .Include(t => t.Album)
-                    .ThenInclude(a => a.Artist)
-                .ToListAsync();
+            var result = await _trackRepository.ListAllAsync();
+
+            var dto = _mapper.Map<IEnumerable<TrackResponseDto>>(result);
+            return dto;
+        }
+
+        public async Task<IEnumerable<TrackResponseDto>> GetByAlbumIdAsync(Guid id)
+        {
+            var result = await _trackRepository.GetByAlbumIdAsync(id);
 
             var dto = _mapper.Map<IEnumerable<TrackResponseDto>>(result);
             return dto;
