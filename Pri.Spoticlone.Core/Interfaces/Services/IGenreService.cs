@@ -13,5 +13,6 @@ namespace Pri.Spoticlone.Core.Interfaces.Services
         Task<GenreResponseDto> GetByIdAsync(Guid id);
         Task<GenreResponseDto> AddAsync(GenreRequestDto genreRequestDto);
         Task<GenreResponseDto> UpdateAsync(GenreRequestDto genreRequestDto);
+        Task DeleteAsync(Guid id);
     }
 }

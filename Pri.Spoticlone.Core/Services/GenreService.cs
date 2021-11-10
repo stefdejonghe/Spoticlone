@@ -31,6 +31,11 @@ namespace Pri.Spoticlone.Core.Services
             return dto;
         }
 
+        public async Task DeleteAsync(Guid id)
+        {
+            await _genreRepository.DeleteAsync(id);
+        }
+
         public async Task<GenreResponseDto> GetByIdAsync(Guid id)
         {
             var result = await _genreRepository.GetByIdAsync(id);

@@ -63,5 +63,18 @@ namespace Pri.Spoticlone.Api.Controllers
             var genreResponseDto = await _genreService.UpdateAsync(genreRequestDto);
             return Ok(genreResponseDto);
         }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var genre = await _genreService.GetByIdAsync(id);
+            if (genre == null)
+            {
+                return NotFound($"Genre with ID {id} does not exist");
+            }
+
+            await _genreService.DeleteAsync(id);
+            return Ok();
+        }
     }
 }
