@@ -22,6 +22,15 @@ namespace Pri.Spoticlone.Core.Services
             _genreRepository = genreRepository;
             _mapper = mapper;
         }
+
+        public async Task<GenreResponseDto> AddAsync(GenreRequestDto genreRequestDto)
+        {
+            var genreEntity = _mapper.Map<Genre>(genreRequestDto);
+            var result = await _genreRepository.AddAsync(genreEntity);
+            var dto = _mapper.Map<GenreResponseDto>(result);
+            return dto;
+        }
+
         public async Task<GenreResponseDto> GetByIdAsync(Guid id)
         {
             var result = await _genreRepository.GetByIdAsync(id);
