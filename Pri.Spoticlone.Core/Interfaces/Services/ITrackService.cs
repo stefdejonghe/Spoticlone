@@ -13,6 +13,6 @@ namespace Pri.Spoticlone.Core.Interfaces.Services
         Task<TrackResponseDto> GetByIdAsync(Guid id);
         Task<TrackResponseDto> AddAsync(TrackRequestDto trackRequestDto);
         Task<TrackResponseDto> UpdateAsync(TrackRequestDto trackRequestDto);
-        Task<TrackResponseDto> DeleteAsync(Guid id);
+        Task DeleteAsync(Guid id);
     }
 }
