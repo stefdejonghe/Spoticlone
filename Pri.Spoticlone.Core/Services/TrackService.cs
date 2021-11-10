@@ -62,9 +62,9 @@ namespace Pri.Spoticlone.Core.Services
             return dto;
         }
 
-        public Task<TrackResponseDto> DeleteAsync(Guid id)
+        public async Task<TrackResponseDto> DeleteAsync(Guid id)
         {
-            throw new NotImplementedException();
+            await _trackRepository.DeleteAsync(id);
         }
     }
 }

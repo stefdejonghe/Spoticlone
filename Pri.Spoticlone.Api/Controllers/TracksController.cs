@@ -63,5 +63,18 @@ namespace Pri.Spoticlone.Api.Controllers
             var trackResponseDto = await _trackService.UpdateAsync(trackRequestDto);
             return Ok(trackResponseDto);
         }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var track = await _trackService.GetByIdAsync(id);
+            if (track == null)
+            {
+                return NotFound($"Track with ID {id} does not exist");
+            }
+
+            await _trackService.DeleteAsync(id);
+            return Ok();
+        }
     }
 }
