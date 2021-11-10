@@ -14,20 +14,17 @@ namespace Pri.Spoticlone.Core.Services
 {
     public class GenreService : IGenreService
     {
-        private readonly IRepository<Genre> _genreRepository;
+        private readonly IGenreRepository _genreRepository;
         private readonly IMapper _mapper;
 
-        public GenreService(IRepository<Genre> genreRepository, IMapper mapper)
+        public GenreService(IGenreRepository genreRepository, IMapper mapper)
         {
             _genreRepository = genreRepository;
             _mapper = mapper;
         }
         public async Task<GenreResponseDto> GetByIdAsync(Guid id)
         {
-            var result = await _genreRepository.GetAllAsync()
-                .Include(g => g.ArtistGenres)
-                    .ThenInclude(ag => ag.Artist)
-                .SingleOrDefaultAsync(g => g.Id.Equals(id));
+            var result = await _genreRepository.GetByIdAsync(id);
 
             var dto = _mapper.Map<GenreResponseDto>(result);
             return dto;
@@ -35,10 +32,7 @@ namespace Pri.Spoticlone.Core.Services
 
         public async Task<IEnumerable<GenreResponseDto>> ListAllAsync()
         {
-            var result = await _genreRepository.GetAllAsync()
-                .Include(g => g.ArtistGenres)
-                    .ThenInclude(ag => ag.Artist)
-                .ToListAsync();
+            var result = await _genreRepository.ListAllAsync();
 
             var dto = _mapper.Map<IEnumerable<GenreResponseDto>>(result);
             return dto;
